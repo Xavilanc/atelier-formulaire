@@ -5,7 +5,7 @@
     </fieldset>
 
     <div *ngIf="loginForm.errors">
-        <span *ngIf="loginForm.errors?.['required']">Le login est requis</span>
+        <span *ngIf="loginForm.invalid && loginForm.dirty && loginForm.touched">Le login est requis</span>
     </div>
   
     <fieldset>
@@ -13,8 +13,8 @@
         <input type="text" id="password" name="password" placeholder="Utilisateur" [(ngModel)]="password" #passwordForm="ngModel" required minlength="8" />
     </fieldset>
 
-    <div *ngIf="passwordForm.errors">
-        <span *ngIf="passwordForm.errors?.['required']">Le prénom est requis</span>
+    <div *ngIf="passwordForm.invalid && passwordForm.dirty && passwordForm.touched">
+        <span *ngIf="passwordForm.errors?.['required']">Le mot de passe est requis</span>
         <span *ngIf="passwordForm.errors?.['minlength']">La longueur minimale doit être supérieure à 8</span>
     </div>
     
